@@ -7,12 +7,13 @@ function vignereCipher() {
     let out = "";
     let alphaRegex = /^[a-zA-Z]+$/;
     let index = -1;
+
     for (const letter of str) {
-        index++;
         if (!alphaRegex.test(letter)) {
             out += letter;
             continue;
         }
+        index++;
 
         out += shift(letter, calculateKeyNumber(index));
     }
@@ -20,7 +21,7 @@ function vignereCipher() {
 }
 
 function shift(letter, key) {
-    return String.fromCharCode(((letter.charCodeAt(0) - 65 + key) % 26) + 65);
+    return String.fromCharCode(((letter.charCodeAt(0) + 65 - key) % 26) + 65);
 }
 
 function calculateKeyNumber(index) {
