@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atbash</title>
-</head>
-<body>
-    <h1>Atbash</h1>
-    <textarea name="input-text" id="input-text" placeholder="Ciphertext here..."></textarea>
-    <textarea name="output-text" id="output-text" disabled="true"></textarea>
-    <script src="atbash.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Atbash</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <nav>
+            <a href="threeLettersBack.html">Three Letters Back</a>
+            <a href="vigenere.html">Vigenère</a>
+            <a href="a1z26.html">A1-Z26</a>
+            <a href="atbash.html" id="selected-link">Atbash</a>
+        </nav>
+        <div id="input-div">
+            <textarea name="input-text" id="input-text" placeholder="Ciphertext here..."></textarea>
+            <textarea name="output-text" id="output-text" disabled="true" placeholder="Output here..."></textarea>
+        </div>
+        <script src="atbash.js"></script>
+    </body>
 </html>

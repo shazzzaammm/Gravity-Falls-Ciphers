@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vignere</title>
-</head>
-<body>
-    <h1>Vignere</h1>
-    <textarea name="input-text" id="input-text" placeholder="Ciphertext here..."></textarea>
-    <input type="text" name="key-text" id="key-text">
-    <textarea name="output-text" id="output-text" disabled="true"></textarea>
-    <script src="vigenere.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vignere</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <nav>
+            <a href="threeLettersBack.html">Three Letters Back</a>
+            <a href="vigenere.html" id="selected-link">Vigenère</a>
+            <a href="a1z26.html">A1-Z26</a>
+            <a href="atbash.html">Atbash</a>
+        </nav>
+        <div id="input-div">
+            <textarea name="input-text" id="input-text" placeholder="Ciphertext here..."></textarea>
+            <textarea name="output-text" id="output-text" disabled="true" placeholder="Output here..."></textarea>
+        </div>
+        <input type="text" name="key-text" id="key-text" placeholder="Key here..." />
+        <script src="vigenere.js"></script>
+    </body>
 </html>

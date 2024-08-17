@@ -37,7 +37,6 @@ function updateKey() {
     key = keyBox.value;
     while (key.length < inputBox.value.length) {
         key += keyBox.value.toUpperCase();
-        console.log(key);
     }
 }
 
