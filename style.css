@@ -1,3 +1,14 @@
+body,
+html {
+    background-color: #e8a789;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    color: black;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -15,15 +26,7 @@ nav>a {
     font-weight: 800;
 }
 
-body,
-html {
-    background-color: #e8a789;
-    padding: 0;
-    margin: 0;
-}
-
 textarea,
-textarea:disabled,
 textarea:focus {
     outline: none;
     font-size: 250%;
@@ -96,6 +99,8 @@ textarea:focus,
     font-weight: 800;
     font-size: 2em;
     text-align: center;
+    border: solid black 2px;
+    margin: .15%;
 }
 
 img {
