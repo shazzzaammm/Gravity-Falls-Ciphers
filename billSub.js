@@ -23,5 +23,17 @@ document.getElementById("backspace-button").addEventListener("click", () => {
 
 document.getElementById("space-button").addEventListener("click", () => {
     outputText.value += " ";
-    inputArea.innerHTML += `<img src="images/characters/space.png" alt="" class="" />`
+    inputArea.innerHTML += `<img src="images/characters/space.png" alt="" class="" />`;
+});
+
+outputText.addEventListener("input", (e) => {
+    inputArea.innerHTML = "";
+    outputText.value = outputText.value.toUpperCase();
+    for (const letter of outputText.value) {
+        if (/^[a-zA-Z]+$/.test(letter)) {
+            inputArea.innerHTML += `<img src="images/characters/bill/${letter.toLowerCase()}.png" alt="" class="" />`;
+        } else if (letter == " ") {
+            inputArea.innerHTML += `<img src="images/characters/space.png" alt="" class="" />`;
+        }
+    }
 });

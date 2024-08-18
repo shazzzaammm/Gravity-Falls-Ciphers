@@ -1,7 +1,7 @@
 const inputBox = document.getElementById("input-text");
 const outputBox = document.getElementById("output-text");
 
-function a1z26() {
+function decodeA1Z26() {
     let str = inputBox.value;
     let out = "";
 
@@ -22,8 +22,28 @@ function a1z26() {
     outputBox.value = out;
 }
 
+function encodeA1Z26() {
+    let str = outputBox.value;
+    let out = "";
+
+    for (const letter of str) {
+        // dont look at this part
+        if (/\s/.test(letter)) {
+            out = out.slice(0, -1);
+            out += letter;
+        } else {
+            out += letter.charCodeAt(0) - 64;
+            out += "-";
+        }
+    }
+    inputBox.value = out;
+}
+
 inputBox.addEventListener("input", (e) => {
-    a1z26();
+    decodeA1Z26();
 });
 
-a1z26();
+outputBox.addEventListener("input", (e) => {
+    outputBox.value = outputBox.value.toUpperCase();
+    encodeA1Z26();
+});

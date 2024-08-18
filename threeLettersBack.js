@@ -1,9 +1,10 @@
 const inputBox = document.getElementById("input-text");
 const outputBox = document.getElementById("output-text");
-let ceasarKey = 23; // WKUHH OHWWHUV EDFN
+let threeLettersForward = 3; // WKUHH OHWWHUV EDFN
+let threeLettersBack = 23; // THREE LETTERS BACK
 
-function ceasarCipher() {
-    let str = inputBox.value;
+function ceasarCipher(input, output, key) {
+    let str = input.value;
     let out = "";
     let alphaRegex = /^[a-zA-Z]+$/;
     for (const letter of str) {
@@ -12,9 +13,9 @@ function ceasarCipher() {
             continue;
         }
 
-        out += shift(letter, ceasarKey);
+        out += shift(letter, key);
     }
-    outputBox.value = out;
+    output.value = out;
 }
 
 function shift(letter, key) {
@@ -23,5 +24,9 @@ function shift(letter, key) {
 
 inputBox.addEventListener("input", (e) => {
     inputBox.value = inputBox.value.toUpperCase();
-    ceasarCipher();
+    ceasarCipher(inputBox, outputBox, threeLettersBack);
+});
+outputBox.addEventListener("input", (e) => {
+    outputBox.value = outputBox.value.toUpperCase();
+    ceasarCipher(outputBox, inputBox, threeLettersForward);
 });

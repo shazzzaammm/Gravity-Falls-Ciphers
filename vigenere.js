@@ -2,8 +2,8 @@ const inputBox = document.getElementById("input-text");
 const outputBox = document.getElementById("output-text");
 const keyBox = document.getElementById("key-text");
 let key;
-function vignereCipher() {
-    let str = inputBox.value;
+function vignereCipher(input, output, decode) {
+    let str = input.value;
     let out = "";
     let alphaRegex = /^[a-zA-Z]+$/;
     let index = -1;
@@ -15,24 +15,26 @@ function vignereCipher() {
         }
         index++;
 
-        out += shift(letter, calculateKeyNumber(index));
+        out += shift(letter, calculateKeyNumber(index, decode));
     }
-    outputBox.value = out;
+    output.value = out;
 }
 
 function shift(letter, key) {
     return String.fromCharCode(((letter.charCodeAt(0) + 65 - key) % 26) + 65);
 }
 
-function calculateKeyNumber(index) {
-    return key.charCodeAt(index) - 65;
+function calculateKeyNumber(index, decode) {
+    if (decode) return key.charCodeAt(index) - 65;
+    else return 26 - (key.charCodeAt(index) - 65);
 }
 
 function updateKey() {
     if (keyBox.value.length == 0) {
         keyBox.value = "Gravity";
     }
-    keyBox.value.replace(/\s/, "");
+    keyBox.value = keyBox.value.replace(/\s|[^A-Z^a-z]/g, "");
+
     keyBox.value = keyBox.value.toUpperCase();
     key = keyBox.value;
     while (key.length < inputBox.value.length) {
@@ -43,9 +45,15 @@ function updateKey() {
 inputBox.addEventListener("input", (e) => {
     inputBox.value = inputBox.value.toUpperCase();
     updateKey();
-    vignereCipher();
+    vignereCipher(inputBox, outputBox, true);
 });
 
-keyBox.addEventListener("input", (e) => {
+outputBox.addEventListener("input", (e) => {
+    outputBox.value = outputBox.value.toUpperCase();
+    updateKey();
+    vignereCipher(outputBox, inputBox, false);
+});
+
+keyBox.addEventListener("change", (e) => {
     updateKey();
 });
