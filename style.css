@@ -1,16 +1,16 @@
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: #732335;
     padding: 2.5%;
+    flex-wrap: wrap;
 }
 
 nav>a {
     color: white;
     text-decoration: none;
     text-align: center;
-    /* padding: 2.5%; */
     font-size: 1.5em;
     font-weight: 800;
 }
@@ -28,16 +28,18 @@ textarea:focus {
     outline: none;
     font-size: 250%;
     min-height: 30vh;
+    min-width: 40%;
     margin: 0 1%;
 }
 
 textarea,
 textarea:disabled,
 textarea:focus,
-#key-text {
+#key-text,
+#input-area {
     background-color: #e8a789;
     color: #713d27;
-    border: solid 5px #d99779;
+    border: solid .3em #d99779;
 }
 
 #key-text {
@@ -53,8 +55,49 @@ textarea:focus,
     display: flex;
     padding: 2%;
     justify-content: center;
+    align-items: center;
 }
 
-#selected-link{
+#selected-link {
     text-decoration: underline;
+}
+
+#keyboard {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    margin: 1%;
+    padding: 1%;
+    max-width: 750px;
+}
+
+.center-div {
+    display: flex;
+    justify-content: center;
+}
+
+#input-area {
+    display: block;
+    margin: 0;
+    border: solid .6em #d99779;
+    min-height: 30vh;
+    min-width: 40%;
+}
+
+.substitution-button,
+#space-button,
+#backspace-button {
+    outline: none;
+    background-color: transparent;
+    border-radius: 10%;
+    width: 50px;
+    height: 50px;
+    font-weight: 800;
+    font-size: 2em;
+    text-align: center;
+}
+
+img {
+    pointer-events: none;
 }
