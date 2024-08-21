@@ -3,7 +3,7 @@ const outputBox = document.getElementById("output-text");
 const keyBox = document.getElementById("key-text");
 let key;
 function vignereCipher(input, output, decode) {
-    let str = input.value;
+    let str = input.value.toUpperCase();
     let out = "";
     let alphaRegex = /^[a-zA-Z]+$/;
     let index = -1;
@@ -31,10 +31,9 @@ function calculateKeyNumber(index, decode) {
 
 function updateKey() {
     if (keyBox.value.length == 0) {
-        keyBox.value = "Gravity";
+        keyBox.value = "KEY";
     }
     keyBox.value = keyBox.value.replace(/\s|[^A-Z^a-z]/g, "");
-
     keyBox.value = keyBox.value.toUpperCase();
     key = keyBox.value;
     while (key.length < inputBox.value.length) {
@@ -43,13 +42,11 @@ function updateKey() {
 }
 
 inputBox.addEventListener("input", (e) => {
-    inputBox.value = inputBox.value.toUpperCase();
     updateKey();
     vignereCipher(inputBox, outputBox, true);
 });
 
 outputBox.addEventListener("input", (e) => {
-    outputBox.value = outputBox.value.toUpperCase();
     updateKey();
     vignereCipher(outputBox, inputBox, false);
 });

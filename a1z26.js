@@ -23,7 +23,7 @@ function decodeA1Z26() {
 }
 
 function encodeA1Z26() {
-    let str = outputBox.value;
+    let str = outputBox.value.toUpperCase();
     let out = "";
 
     for (const letter of str) {
@@ -44,6 +44,5 @@ inputBox.addEventListener("input", (e) => {
 });
 
 outputBox.addEventListener("input", (e) => {
-    outputBox.value = outputBox.value.toUpperCase();
     encodeA1Z26();
 });

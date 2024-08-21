@@ -28,7 +28,6 @@ document.getElementById("space-button").addEventListener("click", () => {
 
 outputText.addEventListener("input", (e) => {
     inputArea.innerHTML = "";
-    outputText.value = outputText.value.toUpperCase();
     for (const letter of outputText.value) {
         if (/^[a-zA-Z]+$/.test(letter)) {
             inputArea.innerHTML += `<img src="images/characters/bill/${letter.toLowerCase()}.png" alt="" class="" />`;

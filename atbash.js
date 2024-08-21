@@ -2,7 +2,7 @@ const inputBox = document.getElementById("input-text");
 const outputBox = document.getElementById("output-text");
 
 function atbashCipher(input, output) {
-    let str = input.value;
+    let str = input.value.toUpperCase();
     let out = "";
     let alphaRegex = /^[a-zA-Z]+$/;
     for (const letter of str) {
@@ -17,11 +17,9 @@ function atbashCipher(input, output) {
 }
 
 inputBox.addEventListener("input", (e) => {
-    inputBox.value = inputBox.value.toUpperCase();
     atbashCipher(inputBox, outputBox);
 });
 
 outputBox.addEventListener("input", (e) => {
-    outputBox.value = outputBox.value.toUpperCase();
     atbashCipher(outputBox, inputBox);
 });

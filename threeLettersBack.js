@@ -4,7 +4,7 @@ let threeLettersForward = 3; // WKUHH OHWWHUV EDFN
 let threeLettersBack = 23; // THREE LETTERS BACK
 
 function ceasarCipher(input, output, key) {
-    let str = input.value;
+    let str = input.value.toUpperCase();
     let out = "";
     let alphaRegex = /^[a-zA-Z]+$/;
     for (const letter of str) {
@@ -23,10 +23,8 @@ function shift(letter, key) {
 }
 
 inputBox.addEventListener("input", (e) => {
-    inputBox.value = inputBox.value.toUpperCase();
     ceasarCipher(inputBox, outputBox, threeLettersBack);
 });
 outputBox.addEventListener("input", (e) => {
-    outputBox.value = outputBox.value.toUpperCase();
     ceasarCipher(outputBox, inputBox, threeLettersForward);
 });
