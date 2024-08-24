@@ -18,8 +18,14 @@ function atbashCipher(input, output) {
 
 inputBox.addEventListener("input", (e) => {
     atbashCipher(inputBox, outputBox);
+    sessionStorage.setItem("inputText", inputBox.value);
 });
 
 outputBox.addEventListener("input", (e) => {
     atbashCipher(outputBox, inputBox);
+    sessionStorage.setItem("inputText", inputBox.value);
 });
+
+if (sessionStorage.getItem("inputText") != null) {
+    inputBox.value = sessionStorage.getItem("inputText");
+}

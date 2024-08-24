@@ -16,16 +16,16 @@ export function setup(buttons, inputArea, outputText, imageFolderName, imageExte
 
     document.getElementById("space-button").addEventListener("click", () => {
         outputText.value += " ";
-        inputArea.innerHTML += `<img src="images/characters/space.png" alt="" class="" />`;
+        inputArea.innerHTML += `<img src="images/characters/space.png" alt="space" class="" />`;
     });
 
     outputText.addEventListener("input", (e) => {
         inputArea.innerHTML = "";
         for (const letter of outputText.value) {
             if (/^[a-zA-Z]+$/.test(letter)) {
-                inputArea.innerHTML += `<img src="images/characters/${imageFolderName}/${letter.toLowerCase()}${imageExtension}" alt="" class="" />`;
+                inputArea.innerHTML += `<img src="images/characters/${imageFolderName}/${letter.toLowerCase()}${imageExtension}" alt="${letter.toLowerCase()}" class="" />`;
             } else if (letter == " ") {
-                inputArea.innerHTML += `<img src="images/characters/space.png" alt="" class="" />`;
+                inputArea.innerHTML += `<img src="images/characters/space.png" alt="space" class="" />`;
             }
         }
     });

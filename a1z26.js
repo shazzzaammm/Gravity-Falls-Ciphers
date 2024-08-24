@@ -41,8 +41,14 @@ function encodeA1Z26() {
 
 inputBox.addEventListener("input", (e) => {
     decodeA1Z26();
+    sessionStorage.setItem("inputText", inputBox.value);
 });
 
 outputBox.addEventListener("input", (e) => {
     encodeA1Z26();
+    sessionStorage.setItem("inputText", inputBox.value);
 });
+
+if (sessionStorage.getItem("inputText") != null) {
+    inputBox.value = sessionStorage.getItem("inputText");
+}

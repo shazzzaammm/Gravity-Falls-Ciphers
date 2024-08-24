@@ -24,7 +24,14 @@ function shift(letter, key) {
 
 inputBox.addEventListener("input", (e) => {
     ceasarCipher(inputBox, outputBox, threeLettersBack);
+    sessionStorage.setItem("inputText", inputBox.value);
 });
+
 outputBox.addEventListener("input", (e) => {
     ceasarCipher(outputBox, inputBox, threeLettersForward);
+    sessionStorage.setItem("inputText", inputBox.value);
 });
+
+if (sessionStorage.getItem("inputText") != null) {
+    inputBox.value = sessionStorage.getItem("inputText");
+}

@@ -44,13 +44,19 @@ function updateKey() {
 inputBox.addEventListener("input", (e) => {
     updateKey();
     vignereCipher(inputBox, outputBox, true);
+    sessionStorage.setItem("inputText", inputBox.value);
 });
 
 outputBox.addEventListener("input", (e) => {
     updateKey();
     vignereCipher(outputBox, inputBox, false);
+    sessionStorage.setItem("inputText", inputBox.value);
 });
 
 keyBox.addEventListener("change", (e) => {
     updateKey();
 });
+
+if (sessionStorage.getItem("inputText") != null) {
+    inputBox.value = sessionStorage.getItem("inputText");
+}
