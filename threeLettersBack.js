@@ -34,4 +34,5 @@ outputBox.addEventListener("input", (e) => {
 
 if (sessionStorage.getItem("inputText") != null) {
     inputBox.value = sessionStorage.getItem("inputText");
+    ceasarCipher(inputBox, outputBox, threeLettersBack);
 }

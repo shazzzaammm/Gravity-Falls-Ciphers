@@ -32,6 +32,7 @@ function calculateKeyNumber(index, decode) {
 function updateKey() {
     if (keyBox.value.length == 0) {
         keyBox.value = "KEY";
+        keyBox.value = sessionStorage.getItem("vigenereKey") == null ? "KEY" : sessionStorage.getItem("vigenereKey");
     }
     keyBox.value = keyBox.value.replace(/\s|[^A-Z^a-z]/g, "");
     keyBox.value = keyBox.value.toUpperCase();
@@ -39,6 +40,7 @@ function updateKey() {
     while (key.length < inputBox.value.length) {
         key += keyBox.value.toUpperCase();
     }
+    sessionStorage.setItem("vigenereKey", keyBox.value);
 }
 
 inputBox.addEventListener("input", (e) => {
@@ -53,10 +55,12 @@ outputBox.addEventListener("input", (e) => {
     sessionStorage.setItem("inputText", inputBox.value);
 });
 
-keyBox.addEventListener("change", (e) => {
+keyBox.addEventListener("input", (e) => {
     updateKey();
 });
 
 if (sessionStorage.getItem("inputText") != null) {
     inputBox.value = sessionStorage.getItem("inputText");
+    updateKey();
+    vignereCipher(inputBox, outputBox, true);
 }
