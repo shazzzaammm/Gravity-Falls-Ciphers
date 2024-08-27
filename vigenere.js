@@ -1,7 +1,8 @@
 const inputBox = document.getElementById("input-text");
 const outputBox = document.getElementById("output-text");
 const keyBox = document.getElementById("key-text");
-let key;
+let key = "KEY";
+
 function vignereCipher(input, output, decode) {
     let str = input.value.toUpperCase();
     let out = "";
@@ -9,6 +10,7 @@ function vignereCipher(input, output, decode) {
     let index = -1;
 
     for (const letter of str) {
+        // YRJI XCCX YVTFKFCDMA MLYBEADIPC
         if (!alphaRegex.test(letter)) {
             out += letter;
             continue;
@@ -20,13 +22,15 @@ function vignereCipher(input, output, decode) {
     output.value = out;
 }
 
-function shift(letter, key) {
-    return String.fromCharCode(((letter.charCodeAt(0) + 65 - key) % 26) + 65);
-}
-
+// MEJMYJKXC DLC UIW XYKLIP LC GXHCHMLQ MLDS RRI IOC ROBR KRB QIRDMLQ XFO MLNIV SR RRI YVTFKFCD
 function calculateKeyNumber(index, decode) {
     if (decode) return key.charCodeAt(index) - 65;
     else return 26 - (key.charCodeAt(index) - 65);
+}
+
+// MECCEP CLGPX RRI JOXROV ZI XFO GYVGSVEROH IOC
+function shift(letter, key) {
+    return String.fromCharCode(((letter.charCodeAt(0) + 65 - key) % 26) + 65);
 }
 
 function updateKey() {
@@ -34,6 +38,7 @@ function updateKey() {
         keyBox.value = "KEY";
         keyBox.value = sessionStorage.getItem("vigenereKey") == null ? "KEY" : sessionStorage.getItem("vigenereKey");
     }
+    // ORQEVC DLC UIW REQ YRJI EJZLYLIRSG AREPKGROVQ
     keyBox.value = keyBox.value.replace(/\s|[^A-Z^a-z]/g, "");
     keyBox.value = keyBox.value.toUpperCase();
     key = keyBox.value;
@@ -43,6 +48,7 @@ function updateKey() {
     sessionStorage.setItem("vigenereKey", keyBox.value);
 }
 
+// OZCXX JSWRORCBW
 inputBox.addEventListener("input", (e) => {
     updateKey();
     vignereCipher(inputBox, outputBox, true);

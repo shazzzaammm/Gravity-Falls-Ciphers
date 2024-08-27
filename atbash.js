@@ -6,16 +6,19 @@ function atbashCipher(input, output) {
     let out = "";
     let alphaRegex = /^[a-zA-Z]+$/;
     for (const letter of str) {
+        // LMOB VMXLWV/WVXLWV ZOKSZYVGRXZO XSZIZXGVIH
         if (!alphaRegex.test(letter)) {
             out += letter;
             continue;
         }
 
+        // IVEVIHV EZOFV RM ZOKSZYVG
         out += String.fromCharCode(90 - letter.charCodeAt(0) + 65);
     }
     output.value = out;
 }
 
+// VEVMG ORHGVMVIH
 inputBox.addEventListener("input", (e) => {
     atbashCipher(inputBox, outputBox);
     sessionStorage.setItem("inputText", inputBox.value);
