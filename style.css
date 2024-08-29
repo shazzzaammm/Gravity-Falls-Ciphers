@@ -1,9 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-@font-face {
-    font-family: Fabian;
-    src: url(fonts/Fabian.otf);
-}
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 @font-face {
     font-family: Cipher;
@@ -31,19 +26,24 @@ nav {
     flex-wrap: wrap;
 }
 
-nav>a,
-.dropdown-content>a,
+nav > a,
+.dropdown-content > a,
 .dropbtn {
     color: white;
     text-decoration: none;
     text-align: center;
     font-size: 1.5em;
+    padding: 0.5em;
+}
+
+nav > a:hover {
+    background-color: #541b27;
 }
 
 textarea,
 textarea:focus {
     outline: none;
-    font-size: 250%;
+    font-size: 200%;
     min-height: 30vh;
     min-width: 40%;
     margin: 0 1%;
@@ -56,7 +56,7 @@ textarea:focus,
 #input-area {
     background-color: #e8a789;
     color: #713d27;
-    border: solid .3em #d99779;
+    border: solid 0.3em #d99779;
 }
 
 #key-text {
@@ -97,7 +97,7 @@ textarea:focus,
 #input-area {
     display: block;
     margin: 0;
-    border: solid .6em #d99779;
+    border: solid 0.6em #d99779;
     min-height: 30vh;
     min-width: 40%;
 }
@@ -114,16 +114,20 @@ textarea:focus,
     border-radius: 10%;
     width: 50px;
     height: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-weight: 800;
     font-size: 2em;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: solid black 2px;
-    margin: .15%;
+    margin: 0.15%;
 }
 
-img {
+.substitution-button > img {
     pointer-events: none;
+    width: 40px;
+    height: 40px;
 }
 
 p {
